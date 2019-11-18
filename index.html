@@ -1,9 +1,8 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>The HTML5 Herald</title>
+        <title>Argento One-command-install generator</title>
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
 
@@ -12,7 +11,35 @@
     </head>
 
     <body>
-      <script src="js/scripts.js"></script>
+        <script src="js/scripts.js"></script>
+
+        <section class="input-data">
+            <input type="text" class="domain" value="Domain name"/>
+            <input type="text" class="license" value="License key" />
+
+            <input type="text" class="locale" value="Locale(s)" />
+            <input type="text" class="storeid" value="Store id" />
+
+            <select>
+              <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
+              <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
+              <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
+              <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
+              <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
+              <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
+              <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
+            </select>
+
+            <input type="checkbox" id="amp" name="amp" checked>
+            <label for="amp">Install AMP</label>
+
+        </section>
+
+        <section class="output-data">
+            <textarea name="generated-code" id="" cols="30" rows="30"></textarea>
+
+        </section>
+
     </body>
 </html>
 
