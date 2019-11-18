@@ -10,36 +10,44 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     </head>
 
-    <body>
-        <script src="js/scripts.js"></script>
+    <body class="">
+            <section class="
+                input-data
+                text-grey
+                mx-auto
+                lg:w-3/5
+                md:w-4/5
+                rounded
+                overflow-hidden
+                shadow-lg
+                px-5
+                py-5
+                self-center
+                ">
+                <div class="main-data flex justify-around">
+                    <input type="text" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Domain name"/>
+                    <input type="text" class="license px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="License key" />
+                </div>
+                <div class="additional-data flex justify-around">
+                    <input type="text" class="locale px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Locale(s)" />
+                    <input type="text" class="storeid px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Store id" />
+                </div>
 
-        <section class="input-data">
-            <input type="text" class="domain" value="Domain name"/>
-            <input type="text" class="license" value="License key" />
+                <div class="theme-chooser flex " >
+                    <select>
+                      <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
+                      <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
+                      <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
+                      <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
+                      <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
+                      <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
+                      <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
+                    </select>
 
-            <input type="text" class="locale" value="Locale(s)" />
-            <input type="text" class="storeid" value="Store id" />
-
-            <select>
-              <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
-              <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
-              <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
-              <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
-              <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
-              <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
-              <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
-            </select>
-
-            <input type="checkbox" id="amp" name="amp" checked>
-            <label for="amp">Install AMP</label>
-
-        </section>
-
-        <section class="output-data">
-            <textarea name="generated-code" id="" cols="30" rows="30"></textarea>
-
-        </section>
-
+                    <input type="checkbox" id="amp" name="amp" checked>
+                    <label for="amp">Install AMP</label>
+                </div>
+            </section>
     </body>
 </html>
 
