@@ -46,7 +46,7 @@
                 ">
 
                 <div class="theme-chooser flex relative" >
-                    <select onfocusout="generateCode()" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
+                    <select onfocusout="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
                       <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
                       <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
                       <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
@@ -62,9 +62,9 @@
 
                 <div class="main-data flex justify-around">
 
-                    <input required onfocusout="generateCode()"  type="text" id="domain-name" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-4/12  focus:outline-none" placeholder="Domain name" value="www.YourDomain.com"/>
+                    <input required onfocusout="generateCode()"  type="text" id="domain-name" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-4/12  focus:outline-none" placeholder="Domain name" value=""/>
 
-                    <input required onfocusout="generateCode()"  type="text" id="license-key" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-6/12 focus:outline-none" placeholder="License key" value="YOUR_LICENSE_KEY"/>
+                    <input required onfocusout="generateCode()"  type="text" id="license-key" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-6/12 focus:outline-none" placeholder="License key" value=""/>
 
                      <div class="amp w-2/12 px-4 py-3 m-6">
                         <input onfocusout="generateCode()"  type="checkbox" id="amp" name="amp" checked>
@@ -98,7 +98,6 @@
                 h-full
                 bg-white
                 block
-
             ">
                 <div class="output-data
                     w-4/5
@@ -112,14 +111,23 @@
                     opacity-75
                     hover:opacity-100
                     ">
+
                     <code onfocus="generateCode()"  id="generated-content" class="
                         break-words
                         text-pink-100
                         font-mono
-                        "></code>
+                        ">
+                        <svg class="loader mx-auto" viewBox="0 0 50 50">
+                          <circle class="ring" cx="25" cy="25" r="20"></circle>
+                          <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+                        </svg>
+
+                    </code>
+
+
+
                 </div>
             </section>
-
 
             <script type="text/javascript" src="js/script.js"></script>
     </body>

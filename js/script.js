@@ -58,10 +58,9 @@ function enabledAmp(phpPath, storeId) {
 }
 
 
-
 function splitString(stringToSplit, separator) {
   var arrayOfStrings = stringToSplit.split(separator);
-  return arrayOfStrings.join('\n');
+  return arrayOfStrings.join('\n\n');
 }
 
 function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
@@ -84,6 +83,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
     var licenseKey = document.getElementById("license-key").value;
     licenseKey = licenseKey.trim();
 
+    var themeName = document.getElementById("theme-name").value;
 
     var code = phpSetting(phpPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json;'+
         phpSetting(phpPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '";' +
