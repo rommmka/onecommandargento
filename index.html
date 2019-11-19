@@ -10,27 +10,40 @@
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     </head>
 
-    <body class="">
+    <body class="
+        antialiased
+        pt-10
+        bg-cover bg-left-top bg-no-repeat ">
+            <h1 class="
+                text-5xl text-center text-gray-700
+                font-extrabold
+                tracking-wide
+                mb-10
+                ">Argento One-command Installation</h1>
+
             <section class="
                 input-data
+
                 text-grey
                 mx-auto
-                lg:w-3/5
-                md:w-4/5
+                self-center
+
+                lg:w-3/5 md:w-4/5
+
                 rounded
                 overflow-hidden
-                shadow-lg
-                px-5
-                py-5
-                self-center
+                shadow-2xl
+
+                px-5 py-5 mb-20
+                bg-white
                 ">
                 <div class="main-data flex justify-around">
-                    <input type="text" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Domain name"/>
-                    <input type="text" class="license px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="License key" />
+                    <input type="text" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="Domain name"/>
+                    <input type="text" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="License key" />
                 </div>
                 <div class="additional-data flex justify-around">
-                    <input type="text" class="locale px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Locale(s)" />
-                    <input type="text" class="storeid px-4 py-3 m-6 border-solid border-4 border-gray-100" placeholder="Store id" />
+                    <input type="text" class="locale px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="Frontend locale(s)" />
+                    <input type="text" class="storeid px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="Store id"/>
                 </div>
 
                 <div class="theme-chooser flex " >
@@ -46,6 +59,65 @@
 
                     <input type="checkbox" id="amp" name="amp" checked>
                     <label for="amp">Install AMP</label>
+                </div>
+
+                <div class="specific-settings flex  justify-around">
+                    <input type="text" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="Composer path"/>
+                    <input type="text" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300" placeholder="PHP"/>
+                </div>
+
+            </section>
+
+            <section class="
+                output-container
+
+                w-full
+                bg-white
+                block
+                border-dashed border-4 border-gray-300 border-r-0 border-l-0 border-b-0
+            ">
+                <div class="output-data
+                    w-4/5
+                    break-words
+                    bg-pink-900
+                    p-8
+                    mx-auto
+                    mt-16
+                    mb-16
+                    rounded">
+                    <code class="
+                        break-words
+                        text-pink-100
+                        font-mono
+                        ">
+composer config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json
+composer config -a -g http-basic.ci.swissuplabs.com "DOMAIN" "IDENTITY_KEY1 IDENTITY_KEY2 ..."
+
+composer require swissup/argento-m2
+
+php bin/magento module:enable Swissup_Core Swissup_Ajaxpro Swissup_Ajaxsearch Swissup_Amp Swissup_Askit Swissup_Attributepages Swissup_Compare Swissup_EasySlide Swissup_Easybanner Swissup_Easycatalogimg Swissup_Easytabs Swissup_Fblike Swissup_FeaturedAttributes Swissup_FontAwesome Swissup_Gdpr Swissup_GdprAskit Swissup_GdprTestimonials Swissup_Highlight Swissup_HoverGallery Swissup_Hreflang Swissup_Lightboxpro Swissup_Navigationpro Swissup_ProLabels Swissup_Reviewreminder Swissup_RichSnippets Swissup_Rtl Swissup_SeoCanonical Swissup_SeoCore Swissup_SeoCrossLinks Swissup_SeoHtmlSitemap Swissup_SeoImages Swissup_QuantitySwitcher Swissup_SeoPager Swissup_SeoUrls Swissup_SeoTemplates Swissup_SeoXmlSitemap Swissup_SlickCarousel Swissup_SoldTogether Swissup_Stickyfill Swissup_Suggestpage Swissup_Testimonials Swissup_ThemeEditor Swissup_ThemeEditorArgentoEssence Swissup_ThemeEditorArgentoFlat Swissup_ThemeEditorArgentoForce Swissup_ThemeEditorArgentoLuxury Swissup_ThemeEditorArgentoPure2 Swissup_ThemeEditorArgentoMall Swissup_ThemeEditorArgentoStripes
+
+php bin/magento setup:upgrade
+
+rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/
+
+php bin/magento setup:static-content:deploy en_US en_GB -f
+
+php bin/magento swissup:module:install --store=STORE_ID THEME_CODE IDENTITY_KEY
+
+cd MAGENTO_ROOT
+cp -R vendor/swissup/theme-frontend-argento-essence/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-flat/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-pure2/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-mall/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-luxury/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-stripes/resources/media/* pub/media/
+cp -R vendor/swissup/theme-frontend-argento-force/resources/media/* pub/media/
+cp -R vendor/swissup/module-amp/resources/media/* pub/media/
+chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg
+
+php bin/magento swissup:module:install --store=STORE_ID Swissup_Amp
+                    </code>
                 </div>
             </section>
     </body>
