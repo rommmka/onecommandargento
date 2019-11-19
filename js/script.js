@@ -50,17 +50,14 @@ function phpSetting(phpPath) {
     }
 }
 
-
 function enabledAmp(phpPath, storeId) {
     if (document.getElementById('amp').checked){
         return phpPath + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' Swissup_Amp;';
     }
 }
 
-
 function splitString(stringToSplit, separator) {
-  var arrayOfStrings = stringToSplit.split(separator);
-  return arrayOfStrings.join('\n\n');
+    return stringToSplit.split(separator).join("<br /><br />");
 }
 
 function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
@@ -105,6 +102,10 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         'cp -R vendor/swissup/theme-frontend-argento-stripes/resources/media/* pub/media/;'+
         'cp -R vendor/swissup/module-amp/resources/media/* pub/media/;'+
         'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg;';
+
+        if (document.getElementById('switch-input').checked){
+            code = splitString(code, ';');
+        }
 
         document.getElementById("generated-content").innerHTML = code;
 };

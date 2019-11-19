@@ -91,7 +91,7 @@
             <section class="
                 output-container
 
-                -mt-32
+                -mt-40
                 pt-12
 
                 w-full
@@ -99,13 +99,22 @@
                 bg-white
                 block
             ">
+                <div class="toggler w-4/5 mx-auto mt-24 flex">
+                    <span class="w-1/12 text-gray-700 leading-loose" >Show per line</span>
+                    <label class="switch switch-flat">
+                        <input id="switch-input" class="switch-input" type="checkbox" onclick="generateCode()" />
+                        <span class="switch-label" data-on="On" data-off="Off"></span>
+                        <span class="switch-handle"></span>
+                    </label>
+                </div>
+
                 <div class="output-data
                     w-4/5
                     break-words
                     bg-pink-900
                     p-8
                     mx-auto
-                    mt-24
+                    mt-10
                     mb-16
                     rounded
                     opacity-75
