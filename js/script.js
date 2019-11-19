@@ -49,6 +49,13 @@ function phpSetting(phpPath) {
         return 'php';
     }
 }
+function phpComposerSetting(phpPath, composerPath) {
+    if (composerSetting(composerPath) == 'composer'){
+        return '';
+    } else {
+        return phpSetting(phpPath);
+    }
+}
 
 function enabledAmp(phpPath, storeId) {
     if (document.getElementById('amp').checked){
@@ -82,9 +89,9 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
 
     var themeName = document.getElementById("theme-name").value;
 
-    var code = phpSetting(phpPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
-        phpSetting(phpPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
-        phpSetting(phpPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
+    var code = phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
+        phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
+        phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
         phpSetting(phpPath) + ' bin/magento module:enable Swissup_Core Swissup_Ajaxpro Swissup_Ajaxsearch Swissup_Amp Swissup_Askit Swissup_Attributepages Swissup_Compare Swissup_EasySlide Swissup_Easybanner Swissup_Easycatalogimg Swissup_Easytabs Swissup_Fblike Swissup_FeaturedAttributes Swissup_FontAwesome Swissup_Gdpr Swissup_GdprAskit Swissup_GdprTestimonials Swissup_Highlight Swissup_HoverGallery Swissup_Hreflang Swissup_Lightboxpro Swissup_Navigationpro Swissup_ProLabels Swissup_Reviewreminder Swissup_RichSnippets Swissup_Rtl Swissup_SeoCanonical Swissup_SeoCore Swissup_SeoCrossLinks Swissup_SeoHtmlSitemap Swissup_SeoImages Swissup_QuantitySwitcher Swissup_SeoPager Swissup_SeoUrls Swissup_SeoTemplates Swissup_SeoXmlSitemap Swissup_SlickCarousel Swissup_SoldTogether Swissup_Stickyfill Swissup_Suggestpage Swissup_Testimonials Swissup_ThemeEditor Swissup_ThemeEditorArgentoEssence Swissup_ThemeEditorArgentoFlat Swissup_ThemeEditorArgentoForce Swissup_ThemeEditorArgentoLuxury Swissup_ThemeEditorArgentoPure2 Swissup_ThemeEditorArgentoMall Swissup_ThemeEditorArgentoStripes && ' +
         phpSetting(phpPath) + ' bin/magento setup:upgrade && ' +
         'rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/ && ' +
