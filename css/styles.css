@@ -1,3 +1,14 @@
 body {
-    background-image: url('../images/background.svg');
+    background: rgb(52,148,230);
+    background: linear-gradient(42deg, rgba(52,148,230,1) 0%, rgba(157,126,198,1) 41%, rgba(236,110,173,1) 100%);
+}
+
+h1 {
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, .2);
+}
+
+.output-data,
+select,
+input {
+    transition: all .2s ease-in-out;
 }
