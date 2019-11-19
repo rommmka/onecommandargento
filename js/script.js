@@ -41,25 +41,69 @@ function composerSetting(composerPath) {
 }
 
 function phpSetting(phpPath) {
+
+    var path = 'php';
+    var server = '';
+    if (enabledMemoryLimit() != '' || enabledAllowUrlFopen() != ''){
+        server = ' -d ' + enabledMemoryLimit() + enabledAllowUrlFopen();
+    }
+
     if (phpPath.trim() == '') {
-        return 'php';
+        return path + server;
     } else if ('php' != phpPath.trim()) {
-        return phpPath;
+        return phpPath + server;
     } else {
-        return 'php';
+        return path + server;
     }
 }
 function phpComposerSetting(phpPath, composerPath) {
+
+    var path = phpSetting(phpPath);
+
     if (composerSetting(composerPath) == 'composer'){
         return '';
     } else {
-        return phpSetting(phpPath);
+        // if (enabledMemoryLimit() == '' || enabledAllowUrlFopen() == ''){
+        //     path =+ ' -d ';
+        //
+        // }
+        return path + enabledMemoryLimit() + ' ' + enabledAllowUrlFopen() ;;
     }
 }
 
 function enabledAmp(phpPath, storeId) {
     if (document.getElementById('amp').checked){
         return phpPath + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' Swissup_Amp && ';
+    }
+}
+
+function enabledDownloadComposer() {
+
+    var defaultComposerValue = document.getElementById("composer-path").value;
+
+    if (document.getElementById('download-composer').checked){
+        document.getElementById("composer-path").value = 'composer.phar';
+        return 'curl -sS https://getcomposer.org/installer | php && ';
+    } else {
+        document.getElementById("composer-path").value = defaultComposerValue;
+        return '';
+    }
+}
+
+function enabledMemoryLimit() {
+
+    if (document.getElementById('memory-limit').checked){
+        return ' memory_limit=-1 ';
+    } else {
+
+        return '';
+    }
+}
+function enabledAllowUrlFopen() {
+    if (document.getElementById('allow-url-fopen').checked){
+        return ' allow_url_fopen=1 ';
+    } else {
+        return '';
     }
 }
 
@@ -89,7 +133,8 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
 
     var themeName = document.getElementById("theme-name").value;
 
-    var code = phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
+    var code = enabledDownloadComposer() +
+        phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
         phpSetting(phpPath) + ' bin/magento module:enable Swissup_Core Swissup_Ajaxpro Swissup_Ajaxsearch Swissup_Amp Swissup_Askit Swissup_Attributepages Swissup_Compare Swissup_EasySlide Swissup_Easybanner Swissup_Easycatalogimg Swissup_Easytabs Swissup_Fblike Swissup_FeaturedAttributes Swissup_FontAwesome Swissup_Gdpr Swissup_GdprAskit Swissup_GdprTestimonials Swissup_Highlight Swissup_HoverGallery Swissup_Hreflang Swissup_Lightboxpro Swissup_Navigationpro Swissup_ProLabels Swissup_Reviewreminder Swissup_RichSnippets Swissup_Rtl Swissup_SeoCanonical Swissup_SeoCore Swissup_SeoCrossLinks Swissup_SeoHtmlSitemap Swissup_SeoImages Swissup_QuantitySwitcher Swissup_SeoPager Swissup_SeoUrls Swissup_SeoTemplates Swissup_SeoXmlSitemap Swissup_SlickCarousel Swissup_SoldTogether Swissup_Stickyfill Swissup_Suggestpage Swissup_Testimonials Swissup_ThemeEditor Swissup_ThemeEditorArgentoEssence Swissup_ThemeEditorArgentoFlat Swissup_ThemeEditorArgentoForce Swissup_ThemeEditorArgentoLuxury Swissup_ThemeEditorArgentoPure2 Swissup_ThemeEditorArgentoMall Swissup_ThemeEditorArgentoStripes && ' +

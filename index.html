@@ -82,6 +82,26 @@
                     <input onfocusout="generateCode()"  type="text" id="composer-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Composer path" value="composer"/>
 
                     <input onfocusout="generateCode()"  type="text" id="php-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="PHP" value="php"/>
+                </div>
+
+                <div class="additional-data flex justify-around" >
+
+                    <div class="download-composer w-4/12 px-4 py-3 m-6">
+                        <input onfocusout="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
+                        <label for="download-composer">Download composer.phar locally</label>
+                    </div>
+
+                    <div class="server-settings flex flex-col w-8/12">
+                        <div class="memory-limit w-auto px-4 py-3 mt-6">
+                            <input onfocusout="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
+                            <label for="memory-limit">Add `memory_limit = -1`</label>
+                        </div>
+
+                        <div class="allow-url-fopen w-w-auto px-4 py-3 m-1">
+                            <input onfocusout="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
+                            <label for="allow-url-fopen">Add `allow_url_fopen = 1`</label>
+                        </div>
+                    </div>
 
                 </div>
 
