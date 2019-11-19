@@ -101,7 +101,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         'cp -R vendor/swissup/theme-frontend-argento-luxury/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/theme-frontend-argento-stripes/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/module-amp/resources/media/* pub/media/ && '+
-        'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg && ';
+        'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg';
 
         if (document.getElementById('switch-input').checked){
             code = splitString(code, ' && ');
