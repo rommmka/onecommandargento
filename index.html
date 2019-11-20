@@ -47,8 +47,8 @@
                 relative
                 ">
 
-                <div class="theme-chooser flex flex-col" >
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                <div class="theme-chooser flex flex-col mb-4" >
+                    <label class="block text-gray-700 text-sm font-bold " for="username">
                         Choose theme design
                     </label>
                     <div class="relative">
@@ -69,21 +69,21 @@
 
                 <div class="main-data flex justify-around">
 
-                    <div class="flex flex-col my-6 mr-6 w-4/12" >
+                    <div class="flex flex-col my-5 mr-6 w-4/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             Domain name
                         </label>
                         <input required onchange="generateCode()"  type="text" id="domain-name" class="domain border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="Domain name" value=""/>
                     </div>
 
-                    <div class="flex flex-col my-6 w-6/12" >
+                    <div class="flex flex-col my-5 w-6/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
                             License key
                         </label>
                         <input required onchange="generateCode()"  type="text" id="license-key" class="license border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="License key" value=""/>
                     </div>
 
-                    <div class="amp w-2/12 px-4 py-3 m-6 mt-12">
+                    <div class="amp w-2/12 px-4 py-3 m-5 mt-12">
                         <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
                         <label for="amp">Install AMP</label>
                     </div>
@@ -91,28 +91,28 @@
                 </div>
 
                 <div class="additional-data flex justify-around">
-                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                    <div class="flex flex-col my-5 mr-2 w-3/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="locale">
                             Frontend locale
                         </label>
                         <input onchange="generateCode()" name="locale" type="text" id="locale" class="locale px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Locale (en_US by default)" />
                     </div>
 
-                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                    <div class="flex flex-col my-5 mr-2 w-3/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="store-id">
                             Store ID
                         </label>
                         <input onchange="generateCode()" type="text" name="store-id" id="store-id" class="storeid px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Store id" value="0"/>
                     </div>
 
-                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                    <div class="flex flex-col my-5 mr-2 w-3/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="composer-path">
                             Custom composer path
                         </label>
                         <input onchange="generateCode()"  type="text" name="composer-path" id="composer-path" class="domain px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Composer path" value="composer"/>
                     </div>
 
-                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                    <div class="flex flex-col my-5 mr-2 w-3/12" >
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="php-path">
                             Custom PHP path
                         </label>
@@ -120,25 +120,20 @@
                     </div>
                 </div>
 
-                <div class="additional-data flex justify-around" >
-
-                    <div class="download-composer w-4/12 px-4 py-3 m-6">
+                <div class="additional-data flex flex-start" >
+                    <div class="download-composer w-4/12 px-4 py-3 mt-6">
                         <input onchange="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
-                        <label for="download-composer">Download composer.phar locally</label>
+                        <label for="download-composer">Download <strong>composer.phar</strong> locally</label>
+                    </div>
+                    <div class="memory-limit w-4/12 px-4 py-3 mt-6">
+                        <input onchange="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
+                        <label for="memory-limit">Add <strong>`memory_limit = -1`</strong></label>
                     </div>
 
-                    <div class="server-settings flex flex-col w-8/12">
-                        <div class="memory-limit w-auto px-4 py-3 mt-6">
-                            <input onchange="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
-                            <label for="memory-limit">Add `memory_limit = -1`</label>
-                        </div>
-
-                        <div class="allow-url-fopen w-w-auto px-4 py-3 m-1">
-                            <input onchange="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
-                            <label for="allow-url-fopen">Add `allow_url_fopen = 1`</label>
-                        </div>
+                    <div class="allow-url-fopen w-4/12 px-4 py-3 mt-6">
+                        <input onchange="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
+                        <label for="allow-url-fopen">Add <strong>`allow_url_fopen = 1`</strong></label>
                     </div>
-
                 </div>
 
 
