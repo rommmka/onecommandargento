@@ -9,6 +9,7 @@ var frontendLocale;
 var storeId;
 var composerPath;
 var phpPath;
+var oldState;
 
 /*************************/
 
@@ -73,15 +74,18 @@ function enabledAmp(phpPath, storeId) {
     }
 }
 
-function enabledDownloadComposer() {
+function enabledDownloadComposer(oldState) {
 
-    var defaultComposerValue = document.getElementById("composer-path").value;
+    var composerPath = document.getElementById("composer-path").value;
 
     if (document.getElementById('download-composer').checked){
         document.getElementById("composer-path").value = 'composer.phar';
         return 'curl -sS https://getcomposer.org/installer | php && ';
+    } else if (composerPath == 'composer.phar' && !document.getElementById('download-composer').checked) {
+        // debugger;
+        document.getElementById("composer-path").value = oldState;
+        return '';
     } else {
-        document.getElementById("composer-path").value = defaultComposerValue;
         return '';
     }
 }
@@ -118,6 +122,10 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
     var composerPath = document.getElementById("composer-path").value;
     composerPath = composerPath.trim();
 
+    if (composerPath != 'composer.phar') {
+        oldState = composerPath;
+    }
+
     var phpPath = document.getElementById("php-path").value;
     phpPath = phpPath.trim();
 
@@ -129,7 +137,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
 
     var themeName = document.getElementById("theme-name").value;
 
-    var code = enabledDownloadComposer() +
+    var code = enabledDownloadComposer(oldState) +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
