@@ -6,6 +6,8 @@
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
 
+        <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+
         <link rel="stylesheet" href="css/styles.css?v=1.0">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
     </head>
@@ -46,7 +48,7 @@
                 ">
 
                 <div class="theme-chooser flex relative" >
-                    <select onfocusout="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
+                    <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
                       <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
                       <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
                       <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
@@ -62,12 +64,12 @@
 
                 <div class="main-data flex justify-around">
 
-                    <input required onfocusout="generateCode()"  type="text" id="domain-name" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-4/12  focus:outline-none" placeholder="Domain name" value=""/>
+                    <input required onchange="generateCode()"  type="text" id="domain-name" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-4/12  focus:outline-none" placeholder="Domain name" value=""/>
 
-                    <input required onfocusout="generateCode()"  type="text" id="license-key" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-6/12 focus:outline-none" placeholder="License key" value=""/>
+                    <input required onchange="generateCode()"  type="text" id="license-key" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-6/12 focus:outline-none" placeholder="License key" value=""/>
 
                      <div class="amp w-2/12 px-4 py-3 m-6">
-                        <input onfocusout="generateCode()"  type="checkbox" id="amp" name="amp" checked>
+                        <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
                         <label for="amp">Install AMP</label>
                     </div>
 
@@ -75,30 +77,30 @@
 
                 <div class="additional-data flex justify-around">
 
-                    <input onfocusout="generateCode()"  type="text" id="locale" class="locale px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Locale (en_US by default)" />
+                    <input onchange="generateCode()"  type="text" id="locale" class="locale px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Locale (en_US by default)" />
 
-                    <input onfocusout="generateCode()"  type="text" id="store-id" class="storeid px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Store id" value="0"/>
+                    <input onchange="generateCode()"  type="text" id="store-id" class="storeid px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Store id" value="0"/>
 
-                    <input onfocusout="generateCode()"  type="text" id="composer-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Composer path" value="composer"/>
+                    <input onchange="generateCode()"  type="text" id="composer-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Composer path" value="composer"/>
 
-                    <input onfocusout="generateCode()"  type="text" id="php-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="PHP" value="php"/>
+                    <input onchange="generateCode()"  type="text" id="php-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="PHP" value="php"/>
                 </div>
 
                 <div class="additional-data flex justify-around" >
 
                     <div class="download-composer w-4/12 px-4 py-3 m-6">
-                        <input onfocusout="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
+                        <input onchange="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
                         <label for="download-composer">Download composer.phar locally</label>
                     </div>
 
                     <div class="server-settings flex flex-col w-8/12">
                         <div class="memory-limit w-auto px-4 py-3 mt-6">
-                            <input onfocusout="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
+                            <input onchange="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
                             <label for="memory-limit">Add `memory_limit = -1`</label>
                         </div>
 
                         <div class="allow-url-fopen w-w-auto px-4 py-3 m-1">
-                            <input onfocusout="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
+                            <input onchange="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
                             <label for="allow-url-fopen">Add `allow_url_fopen = 1`</label>
                         </div>
                     </div>

@@ -63,11 +63,7 @@ function phpComposerSetting(phpPath, composerPath) {
     if (composerSetting(composerPath) == 'composer'){
         return '';
     } else {
-        // if (enabledMemoryLimit() == '' || enabledAllowUrlFopen() == ''){
-        //     path =+ ' -d ';
-        //
-        // }
-        return path + enabledMemoryLimit() + ' ' + enabledAllowUrlFopen() ;;
+        return path;
     }
 }
 
