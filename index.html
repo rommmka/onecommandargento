@@ -17,190 +17,200 @@
         pt-10
         bg-cover bg-left-top bg-no-repeat ">
 
-            <h1 class="
-                text-6xl text-center text-white
-                font-extrabold
-                tracking-wide
-                mb-10
-                ">Argento One-command Installation</h1>
+        <script src="js/clipboard.min.js"></script>
+        <script type="text/javascript" src="js/script.js"></script>
 
-            <section class="
-                input-data
 
-                text-grey
+        <h1 class="
+            text-6xl text-center text-white
+            font-extrabold
+            tracking-wide
+            mb-10
+            ">Argento One-command Installation</h1>
+
+        <section class="
+            input-data
+
+            text-grey
+            mx-auto
+            self-center
+
+            lg:w-3/5 md:w-4/5
+
+            rounded
+            overflow-hidden
+            shadow-xl
+            border-1
+            border-gray-500
+
+
+            px-10 py-10 pt-14 mb-20
+            bg-white
+
+            z-10
+            relative
+            ">
+
+            <div class="theme-chooser flex flex-col mb-4" >
+                <label class="block text-gray-700 text-sm font-bold " for="username">
+                    Choose theme design
+                </label>
+                <div class="relative">
+                    <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
+                      <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
+                      <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
+                      <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
+                      <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
+                      <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
+                      <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
+                      <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <p class="text-gray-600 text-xs italic pl-1">Check designs at our <a href="https://argentotheme.com/demo/" target="_blank" class="text-pink-800">demo page</a></p>
+            </div>
+
+            <div class="main-data flex justify-around">
+
+                <div class="flex flex-col my-5 mr-6 w-4/12" >
+                    <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
+                        Domain name
+                    </label>
+                    <input required onchange="generateCode()"  type="text" id="domain-name" class="domain border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="Domain name" value=""/>
+                    <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" target="_blank" class="text-pink-800" >your account</a></p>
+                </div>
+
+                <div class="flex flex-col my-5 w-6/12" >
+                    <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
+                        License key
+                    </label>
+                    <input required onchange="generateCode()"  type="text" id="license-key" class="license border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="License key" value=""/>
+                    <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" target="_blank" class="text-pink-800">your account</a></p>
+                </div>
+
+                <div class="amp w-2/12 px-4 py-3 m-5 mt-12">
+                    <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
+                    <label for="amp">Install <strong>AMP</strong></label>
+                </div>
+
+            </div>
+
+            <div class="additional-data flex justify-around">
+                <div class="flex flex-col my-5 mr-2 w-3/12" >
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="locale">
+                        Frontend locale
+                    </label>
+                    <input onchange="generateCode()" name="locale" type="text" id="locale" class="locale px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Locale (en_US by default)" />
+                    <p class="text-gray-600 text-xs italic pl-1">Don't add <strong>en_US</strong> it is already included</p>
+                </div>
+
+                <div class="flex flex-col my-5 mr-2 w-3/12" >
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="store-id">
+                        Store ID
+                    </label>
+                    <input onchange="generateCode()" type="text" name="store-id" id="store-id" class="storeid px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Store id" value="0"/>
+                    <p class="text-gray-600 text-xs italic pl-1">'0' - installes to all stores. Check the store IDs with following command: <br /><strong>bin/magento store:list</strong></p>
+                </div>
+
+                <div class="flex flex-col my-5 mr-2 w-3/12" >
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="composer-path">
+                        Custom composer path
+                    </label>
+                    <input onchange="generateCode()"  type="text" name="composer-path" id="composer-path" class="domain px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Composer path" value="composer"/>
+                    <p class="text-gray-600 text-xs italic pl-1">Change if <strong>composer</strong> command is not working. Contact your hosting to get the correct path.</p>
+                </div>
+
+                <div class="flex flex-col my-5 mr-2 w-3/12" >
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="php-path">
+                        Custom PHP path
+                    </label>
+                    <input onchange="generateCode()"  type="text" name="php-path" id="php-path" class="domain px-4 py-3  border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="PHP" value="php"/>
+                    <p class="text-gray-600 text-xs italic pl-1">Change if <strong>php</strong> command is not working (your PHP is &lt; 7.0). Contact your hosting to get the correct path.</p>
+                </div>
+            </div>
+
+            <div class="additional-data flex flex-start" >
+                <div class="download-composer w-4/12 px-4 py-3 mt-6">
+                    <input onchange="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
+                    <label for="download-composer">Download <strong>composer.phar</strong> to store root </label>
+                    <p class="text-gray-600 text-xs italic pl-1">Check if <strong>composer</strong> not accessible at your server. Command uploads it to your <strong>store root</strong></p>
+                </div>
+                <div class="memory-limit w-4/12 px-4 py-3 mt-6">
+                    <input onchange="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
+                    <label for="memory-limit">Add <strong>`memory_limit = -1`</strong></label>
+                    <p class="text-gray-600 text-xs italic pl-1">Check if getting error <strong>Fatal error: Allowed memory size of ..... bytes exhausted </strong></p>
+                </div>
+
+                <div class="allow-url-fopen w-4/12 px-4 py-3 mt-6">
+                    <input onchange="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
+                    <label for="allow-url-fopen">Add <strong>`allow_url_fopen = 1`</strong></label>
+                    <p class="text-gray-600 text-xs italic pl-1">Check if getting error <strong>file could not be downloaded: <strong>allow_url_fopen</strong> must be enabled in php.ini</strong></p>
+                </div>
+            </div>
+
+
+        </section>
+
+        <section class="
+            output-container
+
+            -mt-40
+            pt-12
+
+            w-full
+            h-full
+            bg-white
+            block
+        ">
+            <div class="toggler w-4/5 mx-auto mt-24 flex">
+                <span class="w-1/12 text-gray-700 leading-loose" >Show per line</span>
+                <label class="switch switch-flat">
+                    <input id="switch-input" class="switch-input" type="checkbox" onclick="generateCode()" />
+                    <span class="switch-label" data-on="On" data-off="Off"></span>
+                    <span class="switch-handle"></span>
+                </label>
+            </div>
+
+            <div class="output-data
+                w-4/5
+                break-words
+                bg-pink-800
+                p-8
                 mx-auto
-                self-center
-
-                lg:w-3/5 md:w-4/5
-
+                mt-10
+                mb-16
                 rounded
-                overflow-hidden
-                shadow-xl
-                border-1
-                border-gray-500
-
-
-                px-10 py-10 pt-14 mb-20
-                bg-white
-
-                z-10
+                hover:bg-pink-900
                 relative
                 ">
 
-                <div class="theme-chooser flex flex-col mb-4" >
-                    <label class="block text-gray-700 text-sm font-bold " for="username">
-                        Choose theme design
-                    </label>
-                    <div class="relative">
-                        <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
-                          <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
-                          <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
-                          <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
-                          <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
-                          <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
-                          <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
-                          <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
-                        </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                      </div>
-                    </div>
-                    <p class="text-gray-600 text-xs italic pl-1">Check designs at our <a href="https://argentotheme.com/demo/" class="text-pink-800">demo page</a></p>
-                </div>
+                <textarea class="hidden" id="hidden-code"></textarea>
 
-                <div class="main-data flex justify-around">
+                <button class="copy-button float-right z-20 w-10 h-10" data-clipboard-target="#hidden-code" data-clipboard-action="copy">
+                    <svg class="fill-current text-pink-100" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g data-name="Layer 3"><path d="M40.63,13H12.38A4.69,4.69,0,0,0,7.7,17.67V57.31A4.69,4.69,0,0,0,12.38,62H40.63a4.69,4.69,0,0,0,4.69-4.69V17.67A4.69,4.69,0,0,0,40.63,13Zm2.69,44.33A2.69,2.69,0,0,1,40.63,60H12.38A2.69,2.69,0,0,1,9.7,57.31V17.67A2.69,2.69,0,0,1,12.38,15H40.63a2.69,2.69,0,0,1,2.69,2.69Z"/><path d="M51.74,2H23.26a4.58,4.58,0,0,0-4.58,4.57v3.55a1,1,0,0,0,2,0V6.57A2.58,2.58,0,0,1,23.26,4H51.74A2.57,2.57,0,0,1,54.3,6.57V46.44A2.58,2.58,0,0,1,51.74,49H48.5a1,1,0,0,0,0,2h3.24a4.58,4.58,0,0,0,4.57-4.58V6.57A4.57,4.57,0,0,0,51.74,2Z"/></g></svg>
+                </button>
 
-                    <div class="flex flex-col my-5 mr-6 w-4/12" >
-                        <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
-                            Domain name
-                        </label>
-                        <input required onchange="generateCode()"  type="text" id="domain-name" class="domain border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="Domain name" value=""/>
-                        <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" class="text-pink-800" >your account</a></p>
-                    </div>
-
-                    <div class="flex flex-col my-5 w-6/12" >
-                        <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
-                            License key
-                        </label>
-                        <input required onchange="generateCode()"  type="text" id="license-key" class="license border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="License key" value=""/>
-                        <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" class="text-pink-800">your account</a></p>
-                    </div>
-
-                    <div class="amp w-2/12 px-4 py-3 m-5 mt-12">
-                        <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
-                        <label for="amp">Install <strong>AMP</strong></label>
-                    </div>
-
-                </div>
-
-                <div class="additional-data flex justify-around">
-                    <div class="flex flex-col my-5 mr-2 w-3/12" >
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="locale">
-                            Frontend locale
-                        </label>
-                        <input onchange="generateCode()" name="locale" type="text" id="locale" class="locale px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Locale (en_US by default)" />
-                        <p class="text-gray-600 text-xs italic pl-1">Don't add <strong>en_US</strong> it is already included</p>
-                    </div>
-
-                    <div class="flex flex-col my-5 mr-2 w-3/12" >
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="store-id">
-                            Store ID
-                        </label>
-                        <input onchange="generateCode()" type="text" name="store-id" id="store-id" class="storeid px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Store id" value="0"/>
-                        <p class="text-gray-600 text-xs italic pl-1">'0' - installes to all stores. Check the store IDs with following command: <br /><strong>bin/magento store:list</strong></p>
-                    </div>
-
-                    <div class="flex flex-col my-5 mr-2 w-3/12" >
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="composer-path">
-                            Custom composer path
-                        </label>
-                        <input onchange="generateCode()"  type="text" name="composer-path" id="composer-path" class="domain px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Composer path" value="composer"/>
-                        <p class="text-gray-600 text-xs italic pl-1">Change if <strong>composer</strong> command is not working. Contact your hosting to get the correct path.</p>
-                    </div>
-
-                    <div class="flex flex-col my-5 mr-2 w-3/12" >
-                        <label class="block text-gray-700 text-sm font-bold mb-2" for="php-path">
-                            Custom PHP path
-                        </label>
-                        <input onchange="generateCode()"  type="text" name="php-path" id="php-path" class="domain px-4 py-3  border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="PHP" value="php"/>
-                        <p class="text-gray-600 text-xs italic pl-1">Change if <strong>php</strong> command is not working (your PHP is &lt; 7.0). Contact your hosting to get the correct path.</p>
-                    </div>
-                </div>
-
-                <div class="additional-data flex flex-start" >
-                    <div class="download-composer w-4/12 px-4 py-3 mt-6">
-                        <input onchange="generateCode()"  type="checkbox" id="download-composer" name="download-composer">
-                        <label for="download-composer">Download <strong>composer.phar</strong> to store root </label>
-                        <p class="text-gray-600 text-xs italic pl-1">Check if <strong>composer</strong> not accessible at your server. Command uploads it to your <strong>store root</strong></p>
-                    </div>
-                    <div class="memory-limit w-4/12 px-4 py-3 mt-6">
-                        <input onchange="generateCode()"  type="checkbox" id="memory-limit" name="memory-limit">
-                        <label for="memory-limit">Add <strong>`memory_limit = -1`</strong></label>
-                        <p class="text-gray-600 text-xs italic pl-1">Check if getting error <strong>Fatal error: Allowed memory size of ..... bytes exhausted </strong></p>
-                    </div>
-
-                    <div class="allow-url-fopen w-4/12 px-4 py-3 mt-6">
-                        <input onchange="generateCode()"  type="checkbox" id="allow-url-fopen" name="allow-url-fopen">
-                        <label for="allow-url-fopen">Add <strong>`allow_url_fopen = 1`</strong></label>
-                        <p class="text-gray-600 text-xs italic pl-1">Check if getting error <strong>file could not be downloaded: <strong>allow_url_fopen</strong> must be enabled in php.ini</strong></p>
-                    </div>
-                </div>
-
-
-            </section>
-
-            <section class="
-                output-container
-
-                -mt-40
-                pt-12
-
-                w-full
-                h-full
-                bg-white
-                block
-            ">
-                <div class="toggler w-4/5 mx-auto mt-24 flex">
-                    <span class="w-1/12 text-gray-700 leading-loose" >Show per line</span>
-                    <label class="switch switch-flat">
-                        <input id="switch-input" class="switch-input" type="checkbox" onclick="generateCode()" />
-                        <span class="switch-label" data-on="On" data-off="Off"></span>
-                        <span class="switch-handle"></span>
-                    </label>
-                </div>
-
-                <div class="output-data
-                    w-4/5
+                <code onfocus="generateCode()"  id="generated-content" class="
                     break-words
-                    bg-pink-800
-                    p-8
-                    mx-auto
-                    mt-10
-                    mb-16
-                    rounded
-                    hover:bg-pink-900
+                    text-pink-100
+                    font-mono
                     ">
-
-                    <code onfocus="generateCode()"  id="generated-content" class="
-                        break-words
-                        text-pink-100
-                        font-mono
-                        ">
-                        <svg class="loader mx-auto" viewBox="0 0 50 50">
-                          <circle class="ring" cx="25" cy="25" r="20"></circle>
-                          <circle class="ball" cx="25" cy="5" r="3.5"></circle>
-                        </svg>
-
-                    </code>
-
-
-
-                </div>
-            </section>
-
-            <script type="text/javascript" src="js/script.js"></script>
+                    <svg class="loader mx-auto" viewBox="0 0 50 50">
+                      <circle class="ring" cx="25" cy="25" r="20"></circle>
+                      <circle class="ball" cx="25" cy="5" r="3.5"></circle>
+                    </svg>
+                </code>
+            </div>
+        </section>
     </body>
 </html>
+            <script type="text/javascript">
+                new ClipboardJS('.copy-button', {
+                    container: document.getElementById('hidden-code')
+                });
+            </script>
 
 
 

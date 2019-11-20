@@ -139,6 +139,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
     var themeName = document.getElementById("theme-name").value;
 
     var code = enabledDownloadComposer(oldState) +
+        phpSetting(phpPath) + ' bin/magento maintenance:enable && ' +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
@@ -156,13 +157,14 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         'cp -R vendor/swissup/theme-frontend-argento-luxury/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/theme-frontend-argento-stripes/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/module-amp/resources/media/* pub/media/ && '+
-        'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg';
+        'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg && ' +
+        phpSetting(phpPath) + ' bin/magento maintenance:enable';
 
         if (document.getElementById('switch-input').checked){
             code = splitString(code, ' && ');
         }
 
         document.getElementById("generated-content").innerHTML = code;
+        document.getElementById("hidden-code").innerHTML = code;
 };
-
 
