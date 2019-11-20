@@ -6,7 +6,7 @@
         <meta name="description" content="The HTML5 Herald">
         <meta name="author" content="SitePoint">
 
-        <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+        <link rel="shortcut icon" type="image/png href="images/favicon.png"/>
 
         <link rel="stylesheet" href="css/styles.css?v=1.0">
         <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
@@ -47,28 +47,43 @@
                 relative
                 ">
 
-                <div class="theme-chooser flex relative" >
-                    <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
-                      <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
-                      <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
-                      <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
-                      <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
-                      <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
-                      <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
-                      <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                <div class="theme-chooser flex flex-col" >
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                        Choose theme design
+                    </label>
+                    <div class="relative">
+                        <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
+                          <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
+                          <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
+                          <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
+                          <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
+                          <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
+                          <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
+                          <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                      </div>
                     </div>
                 </div>
 
                 <div class="main-data flex justify-around">
 
-                    <input required onchange="generateCode()"  type="text" id="domain-name" class="domain px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-4/12  focus:outline-none" placeholder="Domain name" value=""/>
+                    <div class="flex flex-col my-6 mr-6 w-4/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            Domain name
+                        </label>
+                        <input required onchange="generateCode()"  type="text" id="domain-name" class="domain border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="Domain name" value=""/>
+                    </div>
 
-                    <input required onchange="generateCode()"  type="text" id="license-key" class="license px-4 py-3 m-6 border-solid border-4 border-gray-300 hover:border-gray-500 w-6/12 focus:outline-none" placeholder="License key" value=""/>
+                    <div class="flex flex-col my-6 w-6/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                            License key
+                        </label>
+                        <input required onchange="generateCode()"  type="text" id="license-key" class="license border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="License key" value=""/>
+                    </div>
 
-                     <div class="amp w-2/12 px-4 py-3 m-6">
+                    <div class="amp w-2/12 px-4 py-3 m-6 mt-12">
                         <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
                         <label for="amp">Install AMP</label>
                     </div>
@@ -76,14 +91,33 @@
                 </div>
 
                 <div class="additional-data flex justify-around">
+                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="locale">
+                            Frontend locale
+                        </label>
+                        <input onchange="generateCode()" name="locale" type="text" id="locale" class="locale px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Locale (en_US by default)" />
+                    </div>
 
-                    <input onchange="generateCode()"  type="text" id="locale" class="locale px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Locale (en_US by default)" />
+                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="store-id">
+                            Store ID
+                        </label>
+                        <input onchange="generateCode()" type="text" name="store-id" id="store-id" class="storeid px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Store id" value="0"/>
+                    </div>
 
-                    <input onchange="generateCode()"  type="text" id="store-id" class="storeid px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Store id" value="0"/>
+                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="composer-path">
+                            Custom composer path
+                        </label>
+                        <input onchange="generateCode()"  type="text" name="composer-path" id="composer-path" class="domain px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Composer path" value="composer"/>
+                    </div>
 
-                    <input onchange="generateCode()"  type="text" id="composer-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="Composer path" value="composer"/>
-
-                    <input onchange="generateCode()"  type="text" id="php-path" class="domain px-4 py-3 my-6 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none 3/12" placeholder="PHP" value="php"/>
+                    <div class="flex flex-col my-6 mr-2 w-3/12" >
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="php-path">
+                            Custom PHP path
+                        </label>
+                        <input onchange="generateCode()"  type="text" name="php-path" id="php-path" class="domain px-4 py-3  border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="PHP" value="php"/>
+                    </div>
                 </div>
 
                 <div class="additional-data flex justify-around" >
