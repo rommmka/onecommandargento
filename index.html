@@ -51,25 +51,33 @@
             relative
             ">
 
-            <div class="theme-chooser flex flex-col mb-4" >
-                <label class="block text-gray-700 text-sm font-bold " for="username">
-                    Choose theme design
-                </label>
-                <div class="relative">
-                    <select onchange="generateCode()" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
-                      <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
-                      <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
-                      <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
-                      <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
-                      <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
-                      <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
-                      <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
-                    </select>
-                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                      <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
+            <div class="theme-chooser flex mb-4 w-full" >
+                <div class="flex flex-col w-9/12">
+                    <label class="block text-gray-700 text-sm font-bold " for="username">
+                        Choose theme design
+                    </label>
+                    <div class="relative">
+                        <select onchange="generateCode(); changeScreenshot();" id="theme-name" class="block appearance-none w-full bg-white border-4 border-gray-300 hover:border-gray-500 px-4 py-3 leading-tight focus:outline-none">
+                          <option value="Swissup_ThemeFrontendArgentoEssence">Essence</option>
+                          <option value="Swissup_ThemeFrontendArgentoFlat">Flat</option>
+                          <option value="Swissup_ThemeFrontendArgentoPure2">Pure2</option>
+                          <option value="Swissup_ThemeFrontendArgentoMall">Mall</option>
+                          <option value="Swissup_ThemeFrontendArgentoLuxury">Luxury</option>
+                          <option value="Swissup_ThemeFrontendArgentoStripes">Stripes</option>
+                          <option value="Swissup_ThemeFrontendArgentoForce">Force</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                      </div>
+                    </div>
+                    <p class="text-gray-600 text-xs italic pl-1">Check designs at our <a href="https://argentotheme.com/demo/" target="_blank" class="text-pink-800">demo page</a></p>
                 </div>
-                <p class="text-gray-600 text-xs italic pl-1">Check designs at our <a href="https://argentotheme.com/demo/" target="_blank" class="text-pink-800">demo page</a></p>
+
+                <div class="flex justify-end w-3/12">
+                    <a id="screenshot-url" href="https://magento2.argentocommerce.com/essence_en/" target="_blank">
+                        <img id="screenshot-img" class="h-32" src="images/screenshots/homepage-essence.png" />
+                    </a>
+                </div>
             </div>
 
             <div class="main-data flex justify-around">
@@ -111,7 +119,7 @@
                         Store ID
                     </label>
                     <input onchange="generateCode()" type="text" name="store-id" id="store-id" class="storeid px-4 py-3 border-solid border-4 border-gray-300 hover:border-gray-500  focus:outline-none" placeholder="Store id" value="0"/>
-                    <p class="text-gray-600 text-xs italic pl-1">'0' - installes to all stores. Check the store IDs with following command: <br /><strong>bin/magento store:list</strong></p>
+                    <p class="text-gray-600 text-xs italic pl-1">'<strong>0</strong>' - installs to all stores. Check the store IDs with following command: <br /><strong>bin/magento store:list</strong></p>
                 </div>
 
                 <div class="flex flex-col my-5 mr-2 w-3/12" >
