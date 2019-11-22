@@ -233,7 +233,8 @@
                         I have too old <code>composer</code> version.
                     </p>
                     <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 float-right">You should contact your hosting to upgrade the
-                    composer verision. if there's no such possibility - you can enable the
+                    composer version. <br>
+                    If there's no such possibility - you can enable the
                     <strong>Download composer.phar to store root</strong> checkbox.
                     It will put the latest <code>composer</code> version to your store.
                     </p>
@@ -253,6 +254,36 @@
                         <a href="http://docs.swissuplabs.com/m2/argento/installation/composer/"
                             class="text-indigo-800 hover:text-indigo-600">installation documentation</a>.
                             You can find many other useful info also.
+                    </p>
+                </div>
+                <div class="post
+                        text-white
+                        text-xl
+
+                        relative
+                        block
+                        mb-64">
+                    <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
+                        I have an <strong>Argento</strong> installed already. Just want to upgrade.
+                    </p>
+                    <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 float-right">
+                        Please, go to your store root and run following commands:
+                        <br>
+                        <code>
+                            composer update swissup/argento-m2 --with-dependencies
+                        </code>
+                            <br><br>
+                        <code>
+                            php bin/magento setup:upgrade
+                        </code>
+                            <br><br>
+                        <code>
+                            rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/
+                        </code>
+                            <br><br>
+                        <code>
+                                php bin/magento setup:static-content:deploy en_US
+                        </code>
                     </p>
                 </div>
 
