@@ -208,9 +208,3 @@ function changeScreenshot() {
         console.log("Wrong theme value");
     }
 }
-
-function copy() {
-  var copyText = document.getElementById("hidden-code");
-  copyText.select();
-  document.execCommand("copy");
-}
