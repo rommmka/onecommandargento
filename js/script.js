@@ -160,12 +160,16 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg && ' +
         phpSetting(phpPath) + ' bin/magento maintenance:disable';
 
+        document.getElementById("hidden-code").innerHTML = code;
+
+        //Formatting
+
         if (document.getElementById('switch-input').checked){
             code = splitString(code, ' && ');
         }
 
+
         document.getElementById("generated-content").innerHTML = code;
-        document.getElementById("hidden-code").innerHTML = code;
 }
 
 function changeScreenshot() {
@@ -201,7 +205,12 @@ function changeScreenshot() {
             document.getElementById('screenshot-img').src = "images/screenshots/force-400.webp";
             break;
       default:
-        console.log("Sorry, we are out of " + expr + ".");
+        console.log("Wrong theme value");
     }
 }
 
+function copy() {
+  var copyText = document.getElementById("hidden-code");
+  copyText.select();
+  document.execCommand("copy");
+}
