@@ -250,7 +250,7 @@
                         Where can i get the detailed explanation of generated commands?
                     </p>
                     <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 float-right">
-                        Please, chech the detailed
+                        Please, check the detailed
                         <a href="http://docs.swissuplabs.com/m2/argento/installation/composer/"
                             class="text-indigo-800 hover:text-indigo-600">installation documentation</a>.
                             You can find many other useful info also.
@@ -295,9 +295,9 @@
     </body>
 </html>
 <script type="text/javascript">
-    new ClipboardJS('.copy-button', {
-        text: function(trigger) {
-            return document.getElementById("hidden-code").innerHTML;
+     var clipboard = new ClipboardJS('.copy-button', {
+        target: function(trigger) {
+            return document.getElementById("hidden-code");
         }
     });
 </script>
