@@ -196,7 +196,7 @@
 
                 <textarea class="hidden" id="hidden-code"></textarea>
 
-                <button class="copy-button float-right z-20 w-10 h-10" data-clipboard-target="#hidden-code" data-clipboard-action="copy">
+                <button class="copy-button cursor-pointer float-right z-20 w-10 h-10" data-clipboard-target="#hidden-code" data-clipboard-action="copy">
                     <svg class="fill-current text-pink-100 hover:text-pink-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g data-name="Layer 3"><path d="M40.63,13H12.38A4.69,4.69,0,0,0,7.7,17.67V57.31A4.69,4.69,0,0,0,12.38,62H40.63a4.69,4.69,0,0,0,4.69-4.69V17.67A4.69,4.69,0,0,0,40.63,13Zm2.69,44.33A2.69,2.69,0,0,1,40.63,60H12.38A2.69,2.69,0,0,1,9.7,57.31V17.67A2.69,2.69,0,0,1,12.38,15H40.63a2.69,2.69,0,0,1,2.69,2.69Z"/><path d="M51.74,2H23.26a4.58,4.58,0,0,0-4.58,4.57v3.55a1,1,0,0,0,2,0V6.57A2.58,2.58,0,0,1,23.26,4H51.74A2.57,2.57,0,0,1,54.3,6.57V46.44A2.58,2.58,0,0,1,51.74,49H48.5a1,1,0,0,0,0,2h3.24a4.58,4.58,0,0,0,4.57-4.58V6.57A4.57,4.57,0,0,0,51.74,2Z"/></g></svg>
                 </button>
 
@@ -254,6 +254,30 @@
                         <a href="http://docs.swissuplabs.com/m2/argento/installation/composer/"
                             class="text-indigo-800 hover:text-indigo-600">installation documentation</a>.
                             You can find many other useful info also.
+                    </p>
+                </div>
+                <div class="post
+                        text-white
+                        text-xl
+                        flex
+                        flex-col
+                        mb-20
+                        ">
+                    <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
+                        I get <code>Authentication required (repo.magento.com):</code> prompt
+                    </p>
+                    <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">
+                        You can enter your Magento API credentials from
+                        <a href="https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html"
+                            class="text-indigo-800 hover:text-indigo-600">Magento Site</a>.
+                            Or go to <code>composer.json</code> and remove following code at bottom
+                            during installation, then don't forget to put it back:
+                            <code>
+                                    "0": {
+                                        "type": "composer",
+                                        "url": "https://repo.magento.com/"
+                                    },
+                            </code>
                     </p>
                 </div>
                 <div class="post
