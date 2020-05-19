@@ -149,7 +149,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         phpSetting(phpPath) + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' ' +
         themeName + ' ' + licenseKey + ' && ' +
         enabledAmp(phpSetting(phpPath), storeId) +
-        'cp -R vendor/swissup/theme-frontend-argento-essence/resources/media/* && ' +
+        'cp -R vendor/swissup/theme-frontend-argento-essence/resources/media/* pub/media/ && ' +
         'cp -R vendor/swissup/theme-frontend-argento-force/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/theme-frontend-argento-flat/resources/media/* pub/media/ && '+
         'cp -R vendor/swissup/theme-frontend-argento-pure2/resources/media/* pub/media/ && '+
