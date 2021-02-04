@@ -83,7 +83,7 @@
 
             <div class="main-data flex justify-around">
 
-                <div class="flex flex-col my-5 mr-6 w-4/12" >
+                <div class="flex flex-col my-5 mr-6 w-5/12" >
                     <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
                         Domain name
                     </label>
@@ -91,17 +91,12 @@
                     <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" target="_blank" class="text-pink-800" >your account</a></p>
                 </div>
 
-                <div class="flex flex-col my-5 w-6/12" >
+                <div class="flex flex-col my-5 w-7/12" >
                     <label class="block text-grey-700 text-sm font-bold mb-2" for="username">
                         License key
                     </label>
                     <input required onchange="generateCode()"  type="text" id="license-key" class="license border-solid border-4 border-gray-300  px-4 py-3 hover:border-gray-500 focus:outline-none" placeholder="License key" value=""/>
                     <p class="text-gray-600 text-xs italic pl-1">Get in <a href="https://argentotheme.com/license/customer/activation/" target="_blank" class="text-pink-800">your account</a></p>
-                </div>
-
-                <div class="amp w-2/12 px-4 py-3 m-5 mt-12">
-                    <input onchange="generateCode()"  type="checkbox" id="amp" name="amp" checked>
-                    <label for="amp">Install <strong>AMP</strong></label>
                 </div>
 
             </div>
@@ -213,93 +208,9 @@
                 </code>
             </div>
         </section>
-        <section class="bg-white p-20 faq">
-            <h2 class="
-                text-6xl text-center text-gray-900
-                font-extrabold
-                tracking-wide
-                mb-10
-                ">FAQ</h2>
+        
+        <?php include "./faq.html" ?>
 
-            <div class="faq-content mx-auto w-8/12" >
-                <div class="post
-                        text-white
-                        text-xl
-                        antialiased
-                        flex
-                        flex-col
-                        mb-20
-                        ">
-                    <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
-                        I have too old <code>composer</code> version.
-                    </p>
-                    <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">You should contact your hosting to upgrade the
-                    composer version. <br>
-                    If there's no such possibility - you can enable the
-                    <strong>Download composer.phar to store root</strong> checkbox.
-                    It will put the latest <code>composer</code> version to your store.
-                    </p>
-                </div>
-                <div class="post
-                        text-white
-                        text-xl
-                        flex
-                        flex-col
-                        mb-20
-                        ">
-                    <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
-                        I get <code>Authentication required (repo.magento.com):</code> prompt
-                    </p>
-                    <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">
-                        You can enter your Magento API credentials from
-                        <a href="https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html"
-                            class="text-indigo-800 hover:text-indigo-600">Magento Site</a>.
-                            Or go to <code>composer.json</code> and remove following code at bottom
-                            during installation, then don't forget to put it back:
-                            <code>
-                                    "0": {
-                                        "type": "composer",
-                                        "url": "https://repo.magento.com/"
-                                    },
-                            </code>
-                    </p>
-                </div>
-                <div class="post
-                        text-white
-                        text-xl
-                        flex
-                        flex-col
-                        mb-20
-                        ">
-                    <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
-                        I have an <strong>Argento</strong> installed already. Just want to upgrade.
-                    </p>
-                    <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">
-                        Please, go to your store root and run following commands:
-                        <br>
-                        <code>
-                            composer update swissup/argento-m2 --with-all-dependencies
-                        </code>
-                            <br><br>
-                        <code>
-                            php bin/magento setup:upgrade
-                        </code>
-                            <br><br>
-                        <code>
-                            rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/
-                        </code>
-                            <br><br>
-                        <code>
-                                php bin/magento setup:static-content:deploy en_US -f
-                        </code>
-                    </p>
-                </div>
-
-
-            </div>
-
-            </div>
-        </section>
     </body>
 </html>
 <script type="text/javascript">

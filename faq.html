@@ -1,0 +1,87 @@
+<section class="bg-white p-20 faq">
+    <h2 class="
+        text-6xl text-center text-gray-900
+        font-extrabold
+        tracking-wide
+        mb-10
+        ">FAQ</h2>
+
+    <div class="faq-content mx-auto w-8/12" >
+        <div class="post
+                text-white
+                text-xl
+                antialiased
+                flex
+                flex-col
+                mb-20
+                ">
+            <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
+                I have too old <code>composer</code> version.
+            </p>
+            <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">You should contact your hosting to upgrade the
+            composer version. <br>
+            If there's no such possibility - you can enable the
+            <strong>Download composer.phar to store root</strong> checkbox.
+            It will put the latest <code>composer</code> version to your store.
+            </p>
+        </div>
+        <div class="post
+                text-white
+                text-xl
+                flex
+                flex-col
+                mb-20
+                ">
+            <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
+                I get <code>Authentication required (repo.magento.com):</code> prompt
+            </p>
+            <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">
+                You can enter your Magento API credentials from
+                <a href="https://devdocs.magento.com/guides/v2.3/install-gde/prereq/connect-auth.html"
+                    class="text-indigo-800 hover:text-indigo-600">Magento Site</a>.
+                    Or go to <code>composer.json</code> and remove following code at bottom
+                    during installation, then don't forget to put it back:
+                    <code>
+                            "0": {
+                                "type": "composer",
+                                "url": "https://repo.magento.com/"
+                            },
+                    </code>
+            </p>
+        </div>
+        <div class="post
+                text-white
+                text-xl
+                flex
+                flex-col
+                mb-20
+                ">
+            <p class="question w-6/12 relative opacity-75 rounded-full py-8 px-12 z-20 bg-purple-400">
+                I have an <strong>Argento</strong> installed already. Just want to upgrade.
+            </p>
+            <p class="answer w-8/12 relative rounded-full py-8 px-12 z-10 -mt-6 bg-pink-400 self-end">
+                Please, go to your store root and run following commands:
+                <br>
+                <code>
+                    composer update swissup/argento-m2 --with-all-dependencies
+                </code>
+                    <br><br>
+                <code>
+                    php bin/magento setup:upgrade
+                </code>
+                    <br><br>
+                <code>
+                    rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/
+                </code>
+                    <br><br>
+                <code>
+                        php bin/magento setup:static-content:deploy en_US -f
+                </code>
+            </p>
+        </div>
+
+
+    </div>
+
+    </div>
+</section>

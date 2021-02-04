@@ -68,13 +68,6 @@ function phpComposerSetting(phpPath, composerPath) {
     }
 }
 
-function enabledAmp(phpPath, storeId) {
-    if (document.getElementById('amp').checked){
-        return phpPath + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' Swissup_Amp && ';
-    } else {
-        return '';
-    }
-}
 
 function enabledDownloadComposer(oldState) {
 
@@ -148,15 +141,6 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         phpSetting(phpPath) + ' bin/magento setup:static-content:deploy en_US ' + localeSetting(additionalLocale) + ' -f  && ' +
         phpSetting(phpPath) + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' ' +
         themeName + ' ' + licenseKey + ' && ' +
-        enabledAmp(phpSetting(phpPath), storeId) +
-        'cp -R vendor/swissup/theme-frontend-argento-essence/resources/media/* pub/media/ && ' +
-        'cp -R vendor/swissup/theme-frontend-argento-force/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/theme-frontend-argento-flat/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/theme-frontend-argento-pure2/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/theme-frontend-argento-mall/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/theme-frontend-argento-luxury/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/theme-frontend-argento-stripes/resources/media/* pub/media/ && '+
-        'cp -R vendor/swissup/module-amp/resources/media/* pub/media/ && '+
         'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg && ' +
         phpSetting(phpPath) + ' bin/magento maintenance:disable';
 
