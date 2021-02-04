@@ -204,6 +204,10 @@ function changeScreenshot() {
             document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/force_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/force-400.webp";
             break;
+        case theme == 'Swissup_ThemeFrontendArgentoHome':
+            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/home_en/";
+            document.getElementById('screenshot-img').src = "images/screenshots/homepage-home.png";
+            break;
       default:
         console.log("Wrong theme value");
     }
