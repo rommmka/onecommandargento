@@ -1,2 +1,5 @@
 * + * {margin-top: 2em;}
+.fields > * + * {margin-top: 0;}
 body {padding-top: 2em;}
+
+h1 { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
