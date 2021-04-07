@@ -12,7 +12,7 @@ function generateCode(){
 	siteUrl = document.querySelector('.site-url').value;
 
 	var url = new URL(siteUrl);
-	var siteName = url.hostname;
+	var siteName = url.hostname.replace('www.','');
 	var imageName = siteName.split(".")[0];
 
 
