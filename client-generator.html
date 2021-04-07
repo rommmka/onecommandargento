@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Best client list items Generator</title>
+		<link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
+		<link rel="stylesheet" href="css/generator.css">
+		<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<script type="text/javascript" src="js/generator.js"></script>
+
+		<h1 class="
+		text-6xl text-center text-gray-700
+		font-extrabold
+		tracking-wide
+		mb-10
+		">Best client list items Generator Ever</h1>
+		<section class="input-data flex flex-col w-4/6 items-center mx-auto">
+			<div class="fields">
+				<label for="site-url" class="block text-grey-700 text-sm font-bold mb-2 " >Site Url</label>
+				<input type="text" class="site-url" name="site-url" placeholder="Site Url" value=""/>
+
+				<a href="#" class=" button-run cursor-pointer" onclick="generateCode()" >Get Code</a>
+			</div>
+		</section>
+		
+		<section class="output-data flex flex-col w-9/12 items-center mx-auto">
+			<textarea name="output-field" id="output-field" cols="80" rows="30">
+				
+			</textarea>
+		</section>
+	</body>
