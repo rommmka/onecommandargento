@@ -1,6 +1,8 @@
 * + * {margin-top: 2em;}
+
+.nav-list > * + *,
 .fields > * + * {margin-top: 0;}
-body {padding-top: 2em;}
+body {padding-top: 1em;}
 
 h1 { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
 
@@ -8,4 +10,18 @@ h1 { text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
 	transform: scale(1.01);
 	transition: all .2s cubic-bezier(.16,.43,.91,1.89);
 	/*transition-delay: .5s;*/
+}
+
+/*******Navigation*********/
+
+.top-nav a:hover,
+.top-nav a.active {	
+    background: rgb(248,113,113); 
+    color:  rgba(2555,255,255);
+    border-color: rgb(248,113,113);
+    transform: scale(1.05);
+}
+
+.top-nav a:hover {
+	background: rgba(239,68,68);
 }
