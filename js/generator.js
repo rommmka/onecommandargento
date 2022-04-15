@@ -60,8 +60,6 @@ function generateCode(){
 </div>
 	`;
 
-	// document.querySelector('#output-field').select();
-
 	if (navigator.permissions) {
         navigator.permissions.query({name: 'clipboard-write'}).then(function (result) {
             if (result.state === 'granted' || result.state === 'prompt') {

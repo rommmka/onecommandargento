@@ -3,13 +3,12 @@
     <head>
         <meta charset="utf-8">
         <title>Argento One-command-install generator</title>
-        <meta name="description" content="The HTML5 Herald">
-        <meta name="author" content="SitePoint">
+        <meta name="description" content="Argento Installation Commands">
+        <meta name="author" content="SwissUpLabs">
 
         <link rel="shortcut icon" type="image/png" href="images/favicon.png"/>
 
         <link rel="stylesheet" href="css/styles.css?v=1.0">
-        <!-- <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet"> -->
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
 
@@ -18,7 +17,6 @@
         pt-10
         bg-cover bg-left-top bg-no-repeat ">
 
-        <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
         <script type="text/javascript" src="js/script.js"></script>
 
         <section class="top-nav
@@ -187,14 +185,6 @@
             bg-white
             block
         ">
-            <div class="toggler w-4/5 mx-auto mt-24 flex">
-                <span class="w-1/12 text-gray-700 leading-loose" >Show per line</span>
-                <label class="switch switch-flat">
-                    <input id="switch-input" class="switch-input" type="checkbox" onclick="generateCode()" />
-                    <span class="switch-label" data-on="On" data-off="Off"></span>
-                    <span class="switch-handle"></span>
-                </label>
-            </div>
 
             <div class="output-data
                 w-4/5
@@ -209,10 +199,6 @@
                 ">
 
                 <textarea class="hidden" id="hidden-code"></textarea>
-
-                <button class="copy-button cursor-pointer float-right z-20 w-10 h-10" data-clipboard-target="#hidden-code" data-clipboard-action="copy">
-                    <svg class="fill-current text-pink-100 hover:text-pink-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><g data-name="Layer 3"><path d="M40.63,13H12.38A4.69,4.69,0,0,0,7.7,17.67V57.31A4.69,4.69,0,0,0,12.38,62H40.63a4.69,4.69,0,0,0,4.69-4.69V17.67A4.69,4.69,0,0,0,40.63,13Zm2.69,44.33A2.69,2.69,0,0,1,40.63,60H12.38A2.69,2.69,0,0,1,9.7,57.31V17.67A2.69,2.69,0,0,1,12.38,15H40.63a2.69,2.69,0,0,1,2.69,2.69Z"/><path d="M51.74,2H23.26a4.58,4.58,0,0,0-4.58,4.57v3.55a1,1,0,0,0,2,0V6.57A2.58,2.58,0,0,1,23.26,4H51.74A2.57,2.57,0,0,1,54.3,6.57V46.44A2.58,2.58,0,0,1,51.74,49H48.5a1,1,0,0,0,0,2h3.24a4.58,4.58,0,0,0,4.57-4.58V6.57A4.57,4.57,0,0,0,51.74,2Z"/></g></svg>
-                </button>
 
                 <code onfocus="generateCode()"  id="generated-content" class="
                     break-words
@@ -307,8 +293,6 @@
                         </code>
                     </p>
                 </div>
-
-
             </div>
 
             </div>
@@ -316,10 +300,9 @@
     </body>
 </html>
 <script type="text/javascript">
-     var clipboard = new ClipboardJS('.copy-button', {
-        target: function(trigger) {
-            return document.getElementById("hidden-code");
-        }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        generateCode();
     });
 </script>
 

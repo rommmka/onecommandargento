@@ -57,6 +57,7 @@ function phpSetting(phpPath) {
         return path + server;
     }
 }
+
 function phpComposerSetting(phpPath, composerPath) {
 
     var path = phpSetting(phpPath);
@@ -67,7 +68,6 @@ function phpComposerSetting(phpPath, composerPath) {
         return path;
     }
 }
-
 
 function enabledDownloadComposer(oldState) {
 
@@ -93,6 +93,7 @@ function enabledMemoryLimit() {
         return '';
     }
 }
+
 function enabledAllowUrlFopen() {
     if (document.getElementById('allow-url-fopen').checked){
         return ' allow_url_fopen=1 ';
@@ -145,13 +146,8 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         phpSetting(phpPath) + ' bin/magento maintenance:disable';
 
         document.getElementById("hidden-code").innerHTML = code;
-
-        //Formatting
-
-        if (document.getElementById('switch-input').checked){
-            code = splitString(code, ' && ');
-        }
-
+        
+        code = splitString(code, ' && ');
 
         document.getElementById("generated-content").innerHTML = code;
 }
