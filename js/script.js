@@ -161,36 +161,40 @@ function changeScreenshot() {
 
     switch (true) {
         case theme == 'Swissup_ThemeFrontendArgentoEssence':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/essence_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/essence_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-essence.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoFlat':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/flat_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/flat_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-flat.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoPure2':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/pure_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/pure_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-pure2.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoMall':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/mall_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/mall_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-mall.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoLuxury':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/luxury_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/luxury_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-luxury.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoStripes':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/stripes_en";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/stripes_en";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-stripes.png";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoForce':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/force_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/force_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/force-400.webp";
             break;
         case theme == 'Swissup_ThemeFrontendArgentoHome':
-            document.getElementById('screenshot-url').href ="https://magento2.argentocommerce.com/home_en/";
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/home_en/";
             document.getElementById('screenshot-img').src = "images/screenshots/homepage-home.png";
+            break;
+        case theme == 'Swissup_ThemeFrontendArgentoMarketplace':
+            document.getElementById('screenshot-url').href ="https://argento-m2.swissupdemo.com/marketplace_en";
+            document.getElementById('screenshot-img').src = "images/screenshots/homepage-marketplace.png";
             break;
       default:
         console.log("Wrong theme value");
