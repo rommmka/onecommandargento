@@ -136,7 +136,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config repositories.swissuplabs composer https://ci.swissuplabs.com/api/packages.json && '+
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' config -a -g http-basic.ci.swissuplabs.com "' + domainName + '" "' + licenseKey + '" && ' +
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
-        phpSetting(phpPath) + ' bin/magento setup:upgrade && ' +
+        phpSetting(phpPath) + ' bin/magento setup:upgrade --safe-mode=1  && ' +
         'rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/ && ' +
         phpSetting(phpPath) + ' bin/magento setup:static-content:deploy en_US ' + localeSetting(additionalLocale) + ' -f  && ' +
         phpSetting(phpPath) + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' ' +
