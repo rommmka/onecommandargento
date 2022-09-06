@@ -139,7 +139,7 @@ function generateCode(domainName = 'localhost', licenseKey = 'LICENSE') {
         phpComposerSetting(phpPath, composerPath) + ' ' + composerSetting(composerPath) + ' require swissup/argento-m2 && ' +
         phpSetting(phpPath) + ' bin/magento setup:upgrade --safe-mode=1  && ' +
         'rm -rf pub/static/_requirejs var/view_preprocessed pub/static/frontend/ pub/static/adminhtml/ generated/code/ && ' +
-        phpSetting(phpPath) + ' bin/magento setup:static-content:deploy en_US ' + localeSetting(additionalLocale) + ' -f  && ' +
+        phpSetting(phpPath) + ' bin/magento setup:static-content:deploy en_US --jobs=$(nproc) ' + localeSetting(additionalLocale) + ' -f  && ' +
         phpSetting(phpPath) + ' bin/magento swissup:module:install --store=' + storeIdSetting(storeId) + ' ' +
         themeName + ' ' + licenseKey + ' && ' +
         'chmod -R 775 pub/media/easybanner pub/media/easyslide pub/media/highlight pub/media/wysiwyg && ' +
